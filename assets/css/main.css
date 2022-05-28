@@ -343,7 +343,7 @@ body {
 		display: flex!important;
 		width: 100%;
 		margin: 0 0 1em 0;
-		border-radius: 25px;
+		border-radius: 6px;
 		/* height: 16em; */
 	}
 
@@ -653,7 +653,7 @@ body {
 			text-transform: uppercase;
 			color: #fff;
 			font-size: 2em;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.4em;
 		}
 
 		#logo p {
@@ -975,13 +975,13 @@ body {
 
 			#logo {
 				text-align: center;
-				padding-left: 2em;
-				padding-right: 2em;
+				/* padding-left: 2em;
+				padding-right: 2em; */
 			}
 
 				#logo h1 {
 					font-size: 1.5em;
-					letter-spacing: 0.2em;
+					letter-spacing: 0.3em;
 				}
 
 				#logo p {
