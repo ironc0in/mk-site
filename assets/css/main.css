@@ -166,10 +166,10 @@ body {
 			width: 66.66667%;
 		}
 
-		.row {
-			/* margin-top: -50px;
-			margin-left: -50px; */
-		}
+		/* .row {
+			margin-top: -50px;
+			margin-left: -50px;
+		} */
 
 			.row > * {
 				padding: 50px 0 0 50px;
@@ -261,10 +261,6 @@ body {
 					.row > * {
 						padding: 50px 0 0 50px;
 					}
-
-				
-
-					.
 
 		}
 
