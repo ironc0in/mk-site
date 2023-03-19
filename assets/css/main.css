@@ -1089,3 +1089,12 @@ ol, ul {
 	justify-content: center;
 	align-items: center;
 }
+.grow img {
+    transition: 0.3s ease;
+} 
+.grow img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1;
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
