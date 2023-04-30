@@ -65,6 +65,10 @@ body {
 	h1 {
 		font-weight: 700;
 	}
+	.thin {
+		font-weight: 200;
+		color: white;
+	}
 	h2, h3 {
 		font-weight: 700;
 		color: var(--section-heading)!important;
@@ -651,8 +655,8 @@ body {
 		#logo h1 {
 			font-weight: 900;
 			text-transform: uppercase;
-			color: #fff;
-			font-size: 3em;
+			color: lightgray;
+			font-size: 4em;
 			letter-spacing: 0.4em;
 		}
 
@@ -1045,12 +1049,12 @@ body {
 		vertical-align: middle;
 	}
 	.pill {
-		border-radius: 5px;
-		background-color: gray;
+		border-radius: 0px;
+		background-color: black;
 		color: white;
 		padding: 5px;
-		margin: 2px;
-		line-height: 2.3em;
+		margin: 1px;
+		line-height: 2 em;
 	}
 	.bidi {
 		unicode-bidi: bidi-override;
