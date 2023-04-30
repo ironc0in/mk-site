@@ -448,7 +448,7 @@ body {
 		.feature-list h3 {
 			color: #e97770 !important;
 			margin: -0.35em 0 0.75em 0;
-			font-size: 1.15em;
+			font-size: 1.5em;
 			letter-spacing: 0.05em;
 		}
 
@@ -458,9 +458,9 @@ body {
 				background: #2f333b url("images/overlay.png");
 				border-radius: 2.5em;
 				text-align: center;
-				width: 2.5em;
-				height: 2.5em;
-				line-height: 2.5em;
+				width: 2em;
+				height: 2em;
+				line-height: 2em;
 				margin-right: 0.75em;
 				position: absolute;
 				left: 0;
@@ -711,13 +711,18 @@ body {
 			max-width: 100%;
 		}
 
-			#footer .feature-list section {
-				border-top-color: rgba(255, 255, 255, 0.05);
-			}
+		#footer .feature-list section {
+			border-top-color: rgba(255, 255, 255, 0.05);
+		}
 
-			#footer .feature-list h3:before {
-				background: #3d4249 url("images/overlay.png");
-			}
+		#footer .feature-list h3:before {
+			background: #3d4249 url("images/overlay.png");
+		}
+		#footer .feature-list p {
+			font-size: 1.3rem;
+			line-height: 2;
+		}
+
 
 /* Copyright */
 
@@ -1041,8 +1046,8 @@ body {
 	}
 	.pill {
 		border-radius: 5px;
-		background-color: lightgray;
-		color: black;
+		background-color: gray;
+		color: white;
 		padding: 5px;
 		margin: 2px;
 		line-height: 2.3em;
