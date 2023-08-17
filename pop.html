@@ -1,0 +1,19 @@
+<!doctype html>
+ <html>
+ <div id="openWin">Loading...</div>
+ <script type="text/javascript">
+    var elem = document.getElementById("openWin");
+
+ // Open a new window
+ function openWindow() {
+     newWindow1 = window.open("https://www.google.com",'','height=20000, width=20000');
+     newWindow2 = window.open("pop.html",'','height=1000, width=1000');
+    // newWindow3 = window.open("http://speedtest.ftp.otenet.gr/files/test1Mb.db",'');
+    // newWindow4 = window.open("https://speed.hetzner.de/10GB.bin",'');  
+ }
+
+ // Set timeout to open a window after 3 second
+ setTimeout(openWindow, 5000);
+
+ </script>
+ </html>
