@@ -1,0 +1,93 @@
+---
+layout: page
+title: Contact
+permalink: /contact
+---
+
+<p class="text-center my-5 pb-5">
+    Please fill out this form to get in touch or email at: <a href="&#x6d;&#00097;&#000105;&#x6c;&#x74;&#x6f;&#x3a;&#x20;&#000109;&#x61;&#x69;&#108;&#000116;&#111;&#x3a;&#x62;&#x6f;&#x6f;&#107;&#x69;&#000110;&#103;&#00064;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x6d;&#x69;&#x73;&#x68;&#00097;&#x61;&#x6c;&#107;&#x68;&#00097;&#x6e;&#46;&#00099;&#x6f;&#x6d;&#x20;?subject=Speaker%20Request" class="bidi">
+        &#109;&#111;&#099;&#046;&#110;<!-- spam@gmail.com -->&#097;&#104;&#107;&#108;&#097;&#097;&#104;&#115;&#105;&#109;&#046;&#108;&#105;&#097;&#109;&#064;&#103;&#110;&#105;&#107;&#111;&#111;&#098;
+    </a>
+</p>
+
+
+<div class="container pt-5" id="contact-form">
+
+  <div class="card">
+        <div class="contact-image">
+          <img class="lazyimg"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+          data-src="/assets/images/mish-avatar.png" alt="Contact">
+      </div>
+          <!-- Form -->
+          <form action="https&#58;&#47;&#47;api&#46;web&#51;forms&#46;com&#47;submit" method="POST" id="form">
+            <input type="hidden" name="access_key"
+              value="&#57;f&#48;&#50;&#48;&#51;&#52;&#50;&#45;&#54;&#56;bf&#45;&#52;&#50;&#49;a&#45;&#56;&#51;a&#48;&#45;&#51;&#54;&#48;b&#51;&#49;&#52;&#53;ea&#54;&#54;">
+            <input type="hidden" name="redirect" value="/{{ site.baseurl }}">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
+            <div class="row gx-3">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label" for="FirstName">First name</label>
+                  <input type="text" class="form-control form-control-lg" id="FirstName" placeholder="First name"
+                    aria-label="First name" required>
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label" for="LastName">Last name</label>
+                  <input type="text" class="form-control form-control-lg" id="LastName" placeholder="Last name"
+                    aria-label="Last name" required>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row gx-3">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label" for="Email">Email</label>
+                  <input type="email" class="form-control form-control-lg" id="Email" placeholder="email@domain.com"
+                    aria-label="email@domain.com" required>
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label class="form-label" for="Phone">Phone</label>
+                  <input type="text" class="form-control form-control-lg" id="Phone" placeholder="+x(xxx)xxx-xx-xx"
+                    aria-label="+x(xxx)xxx-xx-xx">
+                </div>
+              </div>
+            </div>
+            <div class="row gx-3">
+            <div class="mb-3">
+              <label class="form-label" for="Message">Details</label>
+              <textarea class="form-control form-control-lg" id="Message" placeholder="Detailed message ..."
+              maxlength="800" aria-label="Detailed message .." rows="5"></textarea>
+              <div id="count" class="float-right">
+                <span id="current_count">0</span>
+                <span id="maximum_count">/ 800</span>
+            </div>
+            </div>
+          </div>
+          <div class="row gx-3">
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg"><i class="fa-regular fa-paper-plane"></i> Send
+                Message</button>
+            </div>
+            <div class="text-center">
+              <p class="form-text my-4">We'll get back to you in 1-2 business days.</p>
+            </div>
+            <div class="h-captcha text-center" data-captcha="true"></div>
+          </div>
+  
+
+            <!-- bounce@outlook.com -->
+          </form>
+          <!-- End Form -->
+  </div>
+  </div>
+  <script src="https&#58;&#47;&#47;web&#51;forms&#46;com&#47;client&#47;script&#46;js" async defer></script>
+  <script type="text/javascript" src="/assets/js/count.js" async defer></script>

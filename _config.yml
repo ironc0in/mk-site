@@ -1,0 +1,58 @@
+# Site
+name: "Mishaal Khan"
+title: "Mishaal Khan"
+description: "Think Like A Hacker"
+logo: 'assets/icons/apple-touch-icon.png'
+favicon: 'assets/icons/favicon-16x16.png'
+url: https://www.MishaalKhan.com/
+baseurl: 
+include: ["_pages"]
+permalink: /:title/
+
+# Authors
+authors:
+  
+  mishaal:
+    name: Mishaal Khan
+    display_name: Mishaal Khan    
+    avatar: 'assets/images/mish-avatar.png'
+    email: speak@mail.mishaalkhan.com
+    web: https://www.MishaalKhan.com
+    linkedin: https://www.linkedin.com/in/mish-aal/
+    description: "vCISO, Ethical Hacker, Privacy Consultant, OSINT Investigator"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 9
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "enabled"
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="robots" content="notranslate">
+    <link rel="icon" href="{{ site.baseurl }}/assets/icons/favicon-16x16.png">
+    <meta content="Cybersecurity Privacy OSINT open source intelligence" name="keywords">
+    <meta name="description" content="The Real Mishaal Khan. Cybersecurity, Privacy, intelligence">
+    <meta name="msapplication-config" content="#da532c" />
+
+    <title>{{ page.title }}</title>
+
+    {% seo %}
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+
+    <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/images/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.baseurl }}/assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="{{ site.baseurl }}/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <meta HTTP-EQUIV='Content-Security-Policy'
+        CONTENT="default-src 'self'; script-src 'self' 'unsafe-inline'; font-src 'self'; base-uri 'self'">
+    <link href="https://infosec.exchange/@mishaal" rel="me">
+
+    <!-- Social Media Meta Tags -->
+    <!-- FB -->
+    <meta property="og:title" content="Mishaal Khan">
+    <meta property="og:description" content="The Real Mishaal Khan. Cybersecurity, Privacy, intelligence">
+    <meta property="og:image" content="https://www.MishaalKhan.com/images/apple-touch-icon.png?v=1">
+    <meta property="og:url" content="https://www.MishaalKhan.com">
+    <!-- Twitter -->
+    <meta name="twitter:title" content="Mishaal Khan">
+    <meta name="twitter:description" content="The Real Mishaal Khan. Cybersecurity, Privacy, intelligence">
+    <meta name="twitter:url" content="https://www.MishaalKhan.com/images/apple-touch-icon.png?v=1">
+    <meta name="twitter:card"
+        content="Mishaal is a vCISO (Chief Information Security Officer). He is also the Co-Founder of 3 startups in the field of Cybersecurity, Privacy, and OSINT.">
+    <link href="https://infosec.exchange/@mishaal" rel="me">
+
+</head>
+
+{% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
+
+<body class="{{layout}}">
+    <!-- defer loading of font and font awesome -->
+    <noscript id="deferred-styles">
+        <link rel="stylesheet" href="{{ site.baseurl }}/assets/fonts/all.min.css" />
+    </noscript>
+
+    {% include navigation.html %}
+
+    <div class="site-content">
+
+        <!-- Site header -->
+
+        <div class="mainheading">
+            <div class="row">
+
+                <section id="header" class="wrapper">
+                    <div id="logo">
+                        <h1><span class="thin">Mishaal</span>Khan</h1>
+                        <p>{{ site.description }}
+                    </div>
+                </section>
+
+            </div>
+        </div>
+            <!-- Content  -->
+            <div class="main-content">
+                {{ content }}
+            </div>
+
+        {% include footer.html %}
+
+    </div> <!-- /.site-content -->
+
+    <!-- Scripts ============================================= -->
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js"></script>
+    {% if site.lazyimages == "enabled" %}
+    <script src="{{ site.baseurl }}/assets/js/lazyload.js"></script>
+    {% endif %}
+    <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script src="{{site.baseurl}}/assets/js/lunr.js" async defer></script>
+    <script src="{{site.baseurl}}/assets/js/lunrsearchengine.js" async defer></script> -->
+</body>
+
+</html>
