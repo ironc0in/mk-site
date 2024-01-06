@@ -665,7 +665,15 @@ p {
 		top: 1.5em;
 	}
 
-		#logo h1 {
+		/* #logo h1 {
+			font-weight: 900;
+			text-transform: uppercase;
+			color: #a3a3a3;
+			font-size: 2.8rem;
+			letter-spacing: 0.8rem;
+		} */
+
+		#logo div {
 			font-weight: 900;
 			text-transform: uppercase;
 			color: #a3a3a3;
@@ -678,7 +686,7 @@ p {
 			background-color: #00000070;
 			color: rgba(255, 255, 255, 0.5);
 			text-transform: uppercase;
-			margin: 1em 0 0 0;
+			margin: 2em 0 0 0;
 			display: block;
 			letter-spacing: 0.4rem;
 			font-size: 1.6rem;
@@ -986,7 +994,11 @@ p {
 				padding-right: 2em; */
 			}
 
-				#logo h1 {
+				/* #logo h1 {
+					font-size: 1.5em;
+					letter-spacing: 0.3em;
+				} */
+				#logo div {
 					font-size: 1.5em;
 					letter-spacing: 0.3em;
 				}
@@ -1075,11 +1087,12 @@ p {
 		  opacity: 1;
 		}
 	  }
-#header h1 {
-		animation: 1s ease-out 0s 1 slideInFromLeft;
-		letter-spacing: 0.4em;
-		font-size: 3em;
-	}
+
+#logo div {
+	animation: 1s ease-out 0s 1 slideInFromLeft;
+	letter-spacing: 0.4em;
+	font-size: 3em;
+}
 #contact-form .card {
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
