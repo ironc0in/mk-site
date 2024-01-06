@@ -12,7 +12,7 @@
     <title>{{ page.title }}</title>
 
     {% seo %}
-    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery.min.js" async defer></script>
 
     <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
@@ -84,11 +84,11 @@
     </div> <!-- /.site-content -->
 
     <!-- Scripts ============================================= -->
-    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js" async defer></script>
     {% if site.lazyimages == "enabled" %}
-    <script src="{{ site.baseurl }}/assets/js/lazyload.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/lazyload.js" async defer></script>
     {% endif %}
-    <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js" async defer></script>
     <!-- <script src="{{site.baseurl}}/assets/js/lunr.js" async defer></script>
     <script src="{{site.baseurl}}/assets/js/lunrsearchengine.js" async defer></script> -->
 </body>
