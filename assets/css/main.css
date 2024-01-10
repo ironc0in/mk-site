@@ -1741,3 +1741,11 @@ blockquote {
 #videos .highlight {
 	text-align: center !important;
 }
+.topics h3 {
+	font-weight: normal;
+	margin: 20px 0px 20px 0px;
+}
+.topics h2 {
+	font-weight: bold;
+	margin: 20px 0px 20px 0px;
+}
