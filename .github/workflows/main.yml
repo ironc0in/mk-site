@@ -1,9 +1,10 @@
 name: Pull Data from Notion
 on:
-  push
+  push:
+    branches:
+    - master
   schedule:
     - cron: "0 */6 * * *"  # Call the export every 6 hours
-  workflow_dispatch: {}
 
 jobs:
   refresh-feed:
