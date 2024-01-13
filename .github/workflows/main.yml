@@ -1,0 +1,31 @@
+name: Pull Data from Notion
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Call the export every 6 hours
+  workflow_dispatch: {}
+
+jobs:
+  refresh-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          lfs: true
+          
+      - name: Fetch API Data 📦
+        uses: JamesIves/fetch-api-data-action@v2
+        with:
+          endpoint: https://api.notion.com/v1/databases/${{ secrets.PAGE_ID }}/query
+          configuration: '{ "method": "POST", "headers": {"Authorization": "Bearer ${{ secrets.NOTION_TOKEN }}", "Content-Type": "application/json", "Notion-Version": "2022-02-22"} }'
+      
+      - name: Build and Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: main # Pushes the updates to the main branch.
+          folder: fetch-api-data-action # The location of the data.json file saved by the Fetch API Data action.
+          target-folder: _data # Saves the data into the 'data' directory on the main branch.
+    permissions:
+      contents: write
+          

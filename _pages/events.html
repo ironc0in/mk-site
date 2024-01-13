@@ -1,0 +1,64 @@
+---
+layout: page
+title: Events
+permalink: /events
+---
+
+<div class="container">
+
+  <p class="text-center">
+    List of confirmed upcoming events:
+  </p>
+
+  <div class="row featurette">
+
+
+{% if site.data.data.results != %}
+<!-- output table if json table exists -->
+    <table class="mt-5">  <!-- Events Table -->
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Title</th>
+          <th>Place</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" %}
+
+           {% for result in sortedItems %}
+                <tr>
+                  <td>{{ result.properties.Type.select.name }}</td>
+                  <td>{{ result.properties.Title.title.[0].text.content }}</td>
+                  <td>
+                    {% if result.properties.Place.rich_text[0].text.link != null %}
+                    <a href="{{ result.properties.Place.rich_text[0].text.link }}">
+                         {{ result.properties.Place.rich_text[0].text.content }}
+                    </a>
+                    {% else %}
+                         {{ result.properties.Place.rich_text[0].text.content }}
+                    {% endif %}
+                  </td>
+                  <td>{{ result.properties.Date.date.start }}</td>
+                </tr>
+           {% endfor %}
+  
+      </tbody>
+    </table>
+
+{% else %}
+    <p class="text-center">[ Under Construction ]</p>
+{% endif %}
+
+  </div>
+</div>
+
+
+
+
+
+<hr class="featurette-divider">
+
+<!-- /END THE FEATURETTES -->
