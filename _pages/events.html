@@ -15,8 +15,9 @@ permalink: /events
 
 {% if site.data.data.results != %}
 <!-- output table if json table exists -->
-    <table class="mt-5">  <!-- Events Table -->
-      <thead>
+<div class="table-responsive">
+    <table class="mt-5 table table-striped table-hover table-sm align-middle">  <!-- Events Table -->
+      <thead class="table-light">
         <tr>
           <th>Type</th>
           <th>Title</th>
@@ -30,7 +31,7 @@ permalink: /events
 
            {% for result in sortedItems %}
                 <tr>
-                  <td>{{ result.properties.Type.select.name }}</td>
+                  <td class="text-center"><div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">{{ result.properties.Type.select.name }}</div></td>
                   <td>{{ result.properties.Title.title.[0].text.content }}</td>
                   <td>
                     {% if result.properties.Place.rich_text[0].text.link != null %}
@@ -47,7 +48,7 @@ permalink: /events
   
       </tbody>
     </table>
-
+  </div>
 {% else %}
     <p class="text-center">[ Under Construction ]</p>
 {% endif %}

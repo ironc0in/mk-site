@@ -1749,3 +1749,14 @@ blockquote {
 	font-weight: bold;
 	margin: 20px 0px 20px 0px;
 }
+
+tr th {
+	text-align: center;
+	color: var(--section-heading);
+}
+tr td:first-child div {
+	text-align: center!important;
+	color: white!important;
+	font-weight: normal;
+	padding: 5px 15px 5px 15px;
+}
