@@ -42,7 +42,7 @@ permalink: /events
                          {{ result.properties.Place.rich_text[0].text.content }}
                     {% endif %}
                   </td>
-                  <td>{{ result.properties.Date.date.start }}</td>
+                  <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
                 </tr>
            {% endfor %}
   
