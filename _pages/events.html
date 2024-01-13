@@ -35,7 +35,7 @@ permalink: /events
                   <td>{{ result.properties.Title.title.[0].text.content }}</td>
                   <td>
                     {% if result.properties.Place.rich_text[0].text.link != null %}
-                    <a href="{{ result.properties.Place.rich_text[0].text.link }}">
+                    <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
                          {{ result.properties.Place.rich_text[0].text.content }}
                     </a>
                     {% else %}
