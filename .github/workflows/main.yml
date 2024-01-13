@@ -1,5 +1,6 @@
 name: Pull Data from Notion
 on:
+  push
   schedule:
     - cron: "0 */6 * * *"  # Call the export every 6 hours
   workflow_dispatch: {}
