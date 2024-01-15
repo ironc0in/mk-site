@@ -127,7 +127,10 @@ p {
 			.container {
 				width: calc(100% - 100px);
 			}
-
+			h1 {
+				line-height: 2rem;
+			 	margin-bottom: 1.5rem;
+			}
 		}
 
 		@media screen and (max-width: 980px) {
