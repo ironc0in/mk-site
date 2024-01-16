@@ -20,13 +20,14 @@ permalink: /contact
           data-src="/assets/images/mish-avatar.png" alt="Contact">
       </div>
           <!-- Form -->
-          <form action="https&#58;&#47;&#47;api&#46;web&#51;forms&#46;com&#47;submit" method="POST" id="form">
-            <input type="hidden" name="access_key"
-              value="&#97;&#57;&#98;&#99;&#57;&#54;&#54;&#101;&#45;&#99;&#50;&#48;&#101;&#45;&#52;&#98;&#48;&#99;&#45;&#97;&#97;&#101;&#50;&#45;&#51;&#48;&#97;&#55;&#52;&#52;&#55;&#54;&#98;&#53;&#48;&#55;">
-            <input type="hidden" name="redirect" value="{{ site.url }}thankyou">
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-            <input type="hidden" name="from_name" value="Website Form">
-            
+          <form action="&#104;&#116;&#116;&#112;&#115;&colon;&sol;&sol;&#97;&#112;&#105;&period;&#115;&#116;&#97;&#116;&#105;&#99;&#102;&#111;&#114;&#109;&#115;&period;&#120;&#121;&#122;&sol;&#115;&#117;&#98;&#109;&#105;&#116;"
+           method="POST" id="form">
+            <input type="text" name="honeypot" style="display: none">
+            <input type="hidden" name="accessKey" value="&#101;&#54;&#99;&#100;&#55;&#98;&#50;&#102;&#45;&#99;&#57;&#100;&#57;&#45;&#52;&#56;&#98;&#98;&#45;&#97;&#57;&#99;&#52;&#45;&#102;&#99;&#97;&#99;&#50;&#54;&#50;&#54;&#53;&#102;&#53;&#52;">
+            <input type="hidden" name="subject" value="Website Form Submission" />
+            <input type="hidden" name="replyTo" value="@">
+            <input type="hidden" name="redirectTo" value="{{ site.url }}/thankyou">
+
             <div class="row gx-3">
               <div class="col-md-6">
                 <div class="mb-3">
@@ -75,13 +76,11 @@ permalink: /contact
           </div>
           <div class="row gx-3">
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary btn-lg"><i class="fa-regular fa-paper-plane"></i> Send
-                Message</button>
+              <button type="submit" class="btn btn-primary btn-lg"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
             </div>
             <div class="text-center">
               <p class="form-text my-4">We'll get back to you in 1-2 business days.</p>
             </div>
-            <div class="h-captcha text-center" data-captcha="true"></div>
           </div>
             <!-- bounce@outlook.com -->
           </form>
@@ -89,19 +88,4 @@ permalink: /contact
   </div>
   </div>
   
-  <script src="https&#58;&#47;&#47;web&#51;forms&#46;com&#47;client&#47;script&#46;js" async defer></script>
   <script type="text/javascript" src="/assets/js/count.js" async defer></script>
-  <script>
-    const form = document.getElementById('&#97;&#57;&#98;&#99;&#57;&#54;&#54;&#101;&#45;&#99;&#50;&#48;&#101;&#45;&#52;&#98;&#48;&#99;&#45;&#97;&#97;&#101;&#50;&#45;&#51;&#48;&#97;&#55;&#52;&#52;&#55;&#54;&#98;&#53;&#48;&#55;');
-    
-    form.addEventListener('submit', function(e) {
-    
-        const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
-    
-        if (!hCaptcha) {
-            e.preventDefault();
-            alert("Please fill out the captcha")
-            return
-        }
-    });
-    </script>
