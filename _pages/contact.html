@@ -91,3 +91,17 @@ permalink: /contact
   
   <script src="https&#58;&#47;&#47;web&#51;forms&#46;com&#47;client&#47;script&#46;js" async defer></script>
   <script type="text/javascript" src="/assets/js/count.js" async defer></script>
+  <script>
+    const form = document.getElementById('&#97;&#57;&#98;&#99;&#57;&#54;&#54;&#101;&#45;&#99;&#50;&#48;&#101;&#45;&#52;&#98;&#48;&#99;&#45;&#97;&#97;&#101;&#50;&#45;&#51;&#48;&#97;&#55;&#52;&#52;&#55;&#54;&#98;&#53;&#48;&#55;');
+    
+    form.addEventListener('submit', function(e) {
+    
+        const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+    
+        if (!hCaptcha) {
+            e.preventDefault();
+            alert("Please fill out captcha field")
+            return
+        }
+    });
+    </script>
