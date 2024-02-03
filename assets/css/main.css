@@ -1778,3 +1778,6 @@ tr td:first-child div {
 td > input[type="date"] {
 	border-radius: 10px;
 }
+.past, .past a, .past input, .past td {
+	color: #00000060 !important;
+}

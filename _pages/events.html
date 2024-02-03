@@ -12,6 +12,8 @@ permalink: /events
 
   <div class="row featurette">
 
+{% assign today_date = 'now' | date: '%s' %}
+{% assign upcoming_set = false %}
 
 {% if site.data.data.results != %}
 <!-- output table if json table exists -->
@@ -30,7 +32,19 @@ permalink: /events
         {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" %}
 
            {% for result in sortedItems %}
-                <tr>
+
+                {% assign pre_date = result.properties.Date.date.start | date: '%s' %}
+                {% if today_date > pre_date %}
+                  <tr class="past">
+                    {% else %}
+
+                    {% if upcoming_set == false %}
+                    <tr class="text-center"><td colspan="4" class="display-6 py-3">Upcoming</td></tr>
+                    {% assign upcoming_set = true %}
+                    {% else %}
+                    {% endif %}
+                 <tr>
+                {% endif %}
                   <td class="text-center"><div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">{{ result.properties.Type.select.name }}</div></td>
                   <td>{{ result.properties.Title.title.[0].text.content }}</td>
                   <td>
