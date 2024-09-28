@@ -30,19 +30,20 @@
         base-uri 'self'; object-src 'none'; 
         img-src * data: blob:"
         >
-    <link href="https://infosec.exchange/@mishaal" rel="me">
-
     <!-- Social Media Meta Tags -->
     <!-- FB -->
     <meta property="og:title" content="Mishaal Khan">
     <meta property="og:description" content="The Real Mishaal Khan. Speaker, Author, CISO, Hacker, Entrepreneur and Subject Matter Expert in Cybersecurity, Privacy, Open Source Intelligence">
-    <meta property="og:image" content="{{ site.url }}assets/icons/apple-touch-icon.png">
     <meta property="og:url" content="{{ site.url }}">
+    <meta property="og:image" content="{{ site.url }}assets/icons/apple-touch-icon.png">
+    <meta property="og:image" content="{% if page.image != null %}{{ page.image }}{% else %}{{ site.url }}assets/icons/apple-touch-icon.png{% endif %}">
+
     <!-- Twitter -->
     <meta name="twitter:title" content="Mishaal Khan">
     <meta name="twitter:description" content="The Real Mishaal Khan. Speaker, Author, CISO, Hacker, Entrepreneur and Subject Matter Expert in Cybersecurity, Privacy, Open Source Intelligence">
     <meta name="twitter:url" content="{{ site.url }}assets/icons/apple-touch-icon.png">
     <meta name="twitter:card" content="summary_large_image">
+
     <link href="https://infosec.exchange/@mishaal" rel="me">
 
 </head>
