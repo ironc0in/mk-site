@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Past/Upcoming Events
+title:  Past/Upcoming Events 
 permalink: /events
 image: /assets/images/events.png
 ---
@@ -13,67 +13,71 @@ image: /assets/images/events.png
 
   <div class="row featurette">
 
-{% assign today_date = 'now' | date: '%s' %}
-{% assign upcoming_set = false %}
-
-{% if site.data.data.results != %}
-<!-- output table if json table exists -->
-<div class="table-responsive">
-    <table class="mt-5 table table-striped table-hover table-sm align-middle">  <!-- Events Table -->
-      <thead class="table-light">
-        <tr>
-          <th>Type</th>
-          <th>Title</th>
-          <th>Place</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" %}
-
-           {% for result in sortedItems %}
-
+    {% assign today_date = 'now' | date: '%s' %}
+    {% assign upcoming_set = false %}
+    {% assign past_set = false %}
+    
+    {% if site.data.data.results != %}
+    <!-- output table if json data exists -->
+    <div class="table-responsive">
+        <table class="mt-5 table table-striped table-hover table-sm align-middle">  <!-- Events Table -->
+          <tr class="text-center"><td colspan="4" class="display-6 py-3">Upcoming Events</td></tr>
+    
+          <thead class="table-light">
+            <tr>
+              <th>Type</th>
+              <th>Title</th>
+              <th>Place</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+    
+            <!-- Keep sorting in reverse order (newest first) -->
+            {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" | reverse %}
+    
+            {% for result in sortedItems %}
                 {% assign pre_date = result.properties.Date.date.start | date: '%s' %}
+    
                 {% if today_date > pre_date %}
-                  <tr class="past">
-                    {% else %}
-
-                    {% if upcoming_set == false %}
-                    <tr class="text-center"><td colspan="4" class="display-6 py-3">Upcoming</td></tr>
-                    {% assign upcoming_set = true %}
-                    {% else %}
+                    <!-- Insert "Past Events" label only once when the first past event is found -->
+                    {% if past_set == false %}
+                    <tr class="text-center"><td colspan="4" class="display-6 py-3">Past Events</td></tr>
+                    {% assign past_set = true %}
                     {% endif %}
-                 <tr>
+                    <tr class="past">
                 {% endif %}
-                  <td class="text-center"><div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">{{ result.properties.Type.select.name }}</div></td>
-                  <td>{{ result.properties.Title.title.[0].text.content }}</td>
-                  <td>
-                    {% if result.properties.Place.rich_text[0].text.link != null %}
-                    <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
-                         {{ result.properties.Place.rich_text[0].text.content }}
-                    </a>
-                    {% else %}
-                         {{ result.properties.Place.rich_text[0].text.content }}
-                    {% endif %}
-                  </td>
-                  <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
-                </tr>
-           {% endfor %}
-  
-      </tbody>
-    </table>
-  </div>
-{% else %}
-    <p class="text-center">[ Under Construction ]</p>
-{% endif %}
-
-  </div>
+    
+                <td class="text-center">
+                  <div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">
+                    {{ result.properties.Type.select.name }}
+                  </div>
+                </td>
+                <td>{{ result.properties.Title.title.[0].text.content }}</td>
+                <td>
+                  {% if result.properties.Place.rich_text[0].text.link != null %}
+                  <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
+                       {{ result.properties.Place.rich_text[0].text.content }}
+                  </a>
+                  {% else %}
+                       {{ result.properties.Place.rich_text[0].text.content }}
+                  {% endif %}
+                </td>
+                <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
+              </tr>
+            {% endfor %}
+    
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+        <p class="text-center">[ Under Construction ]</p>
+    {% endif %}
+    
+    </div>
+    
 </div>
-
-
-
-
 
 <hr class="featurette-divider">
 
