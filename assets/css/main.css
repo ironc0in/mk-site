@@ -1186,7 +1186,7 @@ nav, section {
 	}
 	#navbarNav ul {
 	
-		display: inline-block;
+		display: inline-flex;
 		border-radius: 0.35em;
 		box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.25);
 		padding: 0 1.5em 0 1.5em;
