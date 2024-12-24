@@ -34,8 +34,8 @@ image: /assets/images/events.png
           
           <tbody>
     
-            <!-- Keep sorting in reverse order (newest first) -->
-            {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" | reverse %}
+            <!-- Keep sorting in normal order (newest/recent first) -->
+            {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" %}
     
             {% for result in sortedItems %}
                 {% assign pre_date = result.properties.Date.date.start | date: '%s' %}
