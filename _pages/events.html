@@ -8,21 +8,20 @@ image: /assets/images/events.png
 <div class="container">
 
   <p class="text-center">
-    List of confirmed upcoming events:
+    List of confirmed events:
   </p>
 
   <div class="row featurette">
 
     {% assign today_date = 'now' | date: '%s' %}
-    {% assign upcoming_set = false %}
-    {% assign past_set = false %}
-    
+
     {% if site.data.data.results != %}
-    <!-- output table if json data exists -->
+    <!-- If JSON data exists, output sections -->
+
+    <!-- Upcoming Events Section -->
     <div class="table-responsive">
-        <table class="mt-5 table table-striped table-hover table-sm align-middle">  <!-- Events Table -->
-          <tr class="text-center"><td colspan="4" class="display-6 py-3">Upcoming Events</td></tr>
-    
+        <h3 class="text-center display-6 py-3">Upcoming Events</h3>
+        <table class="mt-3 table table-striped table-hover table-sm align-middle">
           <thead class="table-light">
             <tr>
               <th>Type</th>
@@ -31,52 +30,80 @@ image: /assets/images/events.png
               <th>Date</th>
             </tr>
           </thead>
-          
           <tbody>
-    
-            <!-- Keep sorting in normal order (newest/recent first) -->
             {% assign sortedItems = site.data.data.results | sort: "properties.Date.date.start" %}
-    
             {% for result in sortedItems %}
                 {% assign pre_date = result.properties.Date.date.start | date: '%s' %}
-    
-                {% if today_date > pre_date %}
-                    <!-- Insert "Past Events" label only once when the first past event is found -->
-                    {% if past_set == false %}
-                    <tr class="text-center"><td colspan="4" class="display-6 py-3">Past Events</td></tr>
-                    {% assign past_set = true %}
+                {% if today_date <= pre_date %}
+                <tr>
+                  <td class="text-center">
+                    <div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">
+                      {{ result.properties.Type.select.name }}
+                    </div>
+                  </td>
+                  <td>{{ result.properties.Title.title.[0].text.content }}</td>
+                  <td>
+                    {% if result.properties.Place.rich_text[0].text.link != null %}
+                    <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
+                         {{ result.properties.Place.rich_text[0].text.content }}
+                    </a>
+                    {% else %}
+                         {{ result.properties.Place.rich_text[0].text.content }}
                     {% endif %}
-                    <tr class="past">
+                  </td>
+                  <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
+                </tr>
                 {% endif %}
-    
-                <td class="text-center">
-                  <div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">
-                    {{ result.properties.Type.select.name }}
-                  </div>
-                </td>
-                <td>{{ result.properties.Title.title.[0].text.content }}</td>
-                <td>
-                  {% if result.properties.Place.rich_text[0].text.link != null %}
-                  <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
-                       {{ result.properties.Place.rich_text[0].text.content }}
-                  </a>
-                  {% else %}
-                       {{ result.properties.Place.rich_text[0].text.content }}
-                  {% endif %}
-                </td>
-                <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
-              </tr>
             {% endfor %}
-    
           </tbody>
         </table>
-      </div>
+    </div>
+
+    <!-- Past Events Section -->
+    <div class="table-responsive mt-5">
+        <h3 class="text-center display-6 py-3">Past Events</h3>
+        <table class="mt-3 table table-striped table-hover table-sm align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Type</th>
+              <th>Title</th>
+              <th>Place</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for result in sortedItems %}
+                {% assign pre_date = result.properties.Date.date.start | date: '%s' %}
+                {% if today_date > pre_date %}
+                <tr class="past">
+                  <td class="text-center">
+                    <div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">
+                      {{ result.properties.Type.select.name }}
+                    </div>
+                  </td>
+                  <td>{{ result.properties.Title.title.[0].text.content }}</td>
+                  <td>
+                    {% if result.properties.Place.rich_text[0].text.link != null %}
+                    <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
+                         {{ result.properties.Place.rich_text[0].text.content }}
+                    </a>
+                    {% else %}
+                         {{ result.properties.Place.rich_text[0].text.content }}
+                    {% endif %}
+                  </td>
+                  <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
     {% else %}
         <p class="text-center">[ Under Construction ]</p>
     {% endif %}
-    
-    </div>
-    
+
+  </div>
+
 </div>
 
 <hr class="featurette-divider">
