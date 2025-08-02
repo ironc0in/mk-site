@@ -15,7 +15,7 @@ image: /assets/images/events.png
 
     {% assign today_date = 'now' | date: '%s' %}
 
-    {% if site.data.data.results != %}
+    {% if site.data.data.results %}
     <!-- If JSON data exists, output sections -->
 
     <!-- Upcoming Events Section -->
@@ -41,7 +41,7 @@ image: /assets/images/events.png
                       {{ result.properties.Type.select.name }}
                     </div>
                   </td>
-                  <td>{{ result.properties.Title.title.[0].text.content }}</td>
+                  <td>{{ result.properties.Title.title[0].text.content }}</td>
                   <td>
                     {% if result.properties.Place.rich_text[0].text.link != null %}
                     <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ image: /assets/images/events.png
                       {{ result.properties.Type.select.name }}
                     </div>
                   </td>
-                  <td>{{ result.properties.Title.title.[0].text.content }}</td>
+                  <td>{{ result.properties.Title.title[0].text.content }}</td>
                   <td>
                     {% if result.properties.Place.rich_text[0].text.link != null %}
                     <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">

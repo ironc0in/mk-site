@@ -1,0 +1,28 @@
+<!-- begin post -->
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="maxthumb">
+            <a href="{{ site.baseurl }}{{ post.url }}">
+                {% if post.image %}
+                    <img class="img-fluid" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}">
+                {% endif %}
+            </a>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            <h4 class="card-text">{{ post.excerpt | strip_html | truncatewords:25 }}</h4>
+            <div class="card-text text-muted">
+                {{ post.date | date: '%B %d, %Y' }}
+                {% if post.categories %}
+                    • Categories: 
+                    {% for category in post.categories %}
+                        <a href="{{ site.baseurl }}/category/{{ category | downcase }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post --> 

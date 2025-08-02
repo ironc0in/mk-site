@@ -9,6 +9,11 @@ source "https://rubygems.org"
 # gem "github-pages", "~> 215", group: :jekyll_plugins
 # If you have any plugins, put them here!
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'jekyll', '~> 4.3.0'
+gem 'csv'
+gem 'base64'
+gem 'logger'
+
 group :jekyll_plugins do
     gem 'jekyll-feed'
     gem 'jekyll-sitemap'
