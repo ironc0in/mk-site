@@ -1115,6 +1115,15 @@ ol, ul {
 	max-width: 90px;
 	margin: 3px;
 }
+
+@media screen and (max-width: 980px) {
+	.style5 > li > img, .style5 > li > a > img {
+		max-height: 50px;
+		max-width: 50px;
+		margin: 2px;
+	}
+}
+
 .style5 {
 	display: inline-flex;
 	flex-wrap: wrap;
