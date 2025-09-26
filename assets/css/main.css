@@ -646,22 +646,13 @@ p {
 		-ms-justify-content: center;
 		justify-content: center;
 		position: relative;
-		height: 28em;
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.2),  rgba(0, 0, 0, 0.9)), url("/assets/images/black-header.png") center center;
-		background-size: cover;
+		height: 40em;
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.2),  rgba(0, 0, 0, 0.9)), url("/assets/images/header.webp") center center;
+		background-size: contain;
 		padding: 0;
 	}
 
-		#header:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: url("/assets/images/black-header.png");
-			background-attachment: fixed;
-		}
+
 
 /* Logo */
 
@@ -689,9 +680,8 @@ p {
 		}
 
 		#logo p {
-			color: #eee;
 			background-color: #00000070;
-			color: rgba(255, 255, 255, 0.5);
+			color: rgba(0, 255, 0, 0.7);
 			text-transform: uppercase;
 			margin: 2em 0 0 0;
 			display: block;
@@ -990,7 +980,8 @@ p {
 		/* Header */
 
 			#header {
-				height: 17em;
+				height: 26em;
+				background-size: cover;
 			}
 
 		/* Logo */
