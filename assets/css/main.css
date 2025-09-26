@@ -1113,7 +1113,7 @@ ol, ul {
 	border-radius: 5px;
 	max-height: 90px;
 	max-width: 90px;
-	margin: 15px;
+	margin: 3px;
 }
 .style5 {
 	display: inline-flex;
@@ -1734,8 +1734,8 @@ nav, section {
 blockquote {
 	color: var(--section-heading) !important;
 	font-weight: normal;
-1	font-size: 1.5rem;
-	line-height: 3.5em;
+	font-size: 1.5rem;
+	line-height: 1.5em;
 }
 
 .btn,
