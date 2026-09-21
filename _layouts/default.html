@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="notranslate">
     <link rel="icon" href="{{ site.baseurl }}/assets/icons/favicon-16x16.png">
     <meta content="Cybersecurity Privacy OSINT open source intelligence" name="keywords">
@@ -11,9 +11,10 @@
     <title>{{ site.title }} - {{ page.title }}</title>
 
     {% seo %}
-    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery.min.js" async defer></script>
 
     <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/fonts/SourceSansPro.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/fonts/all.min.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ site.url }}assets/icons/apple-touch-icon.png">
@@ -51,11 +52,6 @@
 {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 
 <body class="{{layout}}">
-    <!-- defer loading of font and font awesome -->
-    <noscript id="deferred-styles">
-        <link rel="stylesheet" href="{{ site.baseurl }}/assets/fonts/all.min.css" />
-    </noscript>
-
     {% include navigation.html %}
 
     <div class="site-content">
@@ -63,16 +59,12 @@
         <!-- Site header -->
 
         <div class="mainheading">
-            <div class="row">
-
-                <section id="header" class="wrapper">
-                    <div id="logo">
-                        <div><span class="thin">Mishaal</span>Khan</div>
-                        <p>{{ site.description }}
-                    </div>
-                </section>
-
-            </div>
+            <section id="header" class="wrapper">
+                <div id="logo">
+                    <div><span class="thin">Mishaal</span>Khan</div>
+                    <p>{{ site.description }}</p>
+                </div>
+            </section>
         </div>
             <!-- Content  -->
             <div class="main-content">
@@ -85,10 +77,6 @@
 
     <!-- Scripts ============================================= -->
     <script type="text/javascript" src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js" async defer></script>
-    {% if site.lazyimages == "enabled" %}
-    <script src="{{ site.baseurl }}/assets/js/lazyload.js" async defer></script>
-    {% endif %}
-    <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js" async defer></script>
     <!-- <script src="{{site.baseurl}}/assets/js/lunr.js" async defer></script>
     <script src="{{site.baseurl}}/assets/js/lunrsearchengine.js" async defer></script> -->
 </body>

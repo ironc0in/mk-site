@@ -21,7 +21,7 @@ image: /assets/images/events.png
     <!-- Upcoming Events Section -->
     <div class="table-responsive">
         <h3 class="text-center display-6 py-3">Upcoming Events</h3>
-        <table class="mt-3 table table-striped table-hover table-sm align-middle">
+        <table class="events-table mt-3 table table-striped table-hover table-sm align-middle">
           <thead class="table-light">
             <tr>
               <th>Type</th>
@@ -42,7 +42,7 @@ image: /assets/images/events.png
                     </div>
                   </td>
                   <td>{{ result.properties.Title.title[0].text.content }}</td>
-                  <td>
+                  <td data-label="Place">
                     {% if result.properties.Place.rich_text[0].text.link != null %}
                     <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
                          {{ result.properties.Place.rich_text[0].text.content }}
@@ -51,7 +51,7 @@ image: /assets/images/events.png
                          {{ result.properties.Place.rich_text[0].text.content }}
                     {% endif %}
                   </td>
-                  <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
+                  <td data-label="Date"><time datetime="{{ result.properties.Date.date.start }}">{{ result.properties.Date.date.start | date: "%b %-d, %Y" }}</time></td>
                 </tr>
                 {% endif %}
             {% endfor %}
@@ -64,7 +64,7 @@ image: /assets/images/events.png
     <!-- Past Events Section -->
     <div class="table-responsive mt-5">
         <h3 class="text-center display-6 py-3">Past Events</h3>
-        <table class="mt-3 table table-striped table-hover table-sm align-middle">
+        <table class="events-table mt-3 table table-striped table-hover table-sm align-middle">
           <thead class="table-light">
             <tr>
               <th>Type</th>
@@ -84,7 +84,7 @@ image: /assets/images/events.png
                     </div>
                   </td>
                   <td>{{ result.properties.Title.title[0].text.content }}</td>
-                  <td>
+                  <td data-label="Place">
                     {% if result.properties.Place.rich_text[0].text.link != null %}
                     <a href="{{ result.properties.Place.rich_text[0].text.link.url }}" target="_blank" rel="noopener noreferrer">
                          {{ result.properties.Place.rich_text[0].text.content }}
@@ -93,7 +93,7 @@ image: /assets/images/events.png
                          {{ result.properties.Place.rich_text[0].text.content }}
                     {% endif %}
                   </td>
-                  <td><input type="date" value="{{ result.properties.Date.date.start }}" readonly /></td>
+                  <td data-label="Date"><time datetime="{{ result.properties.Date.date.start }}">{{ result.properties.Date.date.start | date: "%b %-d, %Y" }}</time></td>
                 </tr>
                 {% endif %}
             {% endfor %}
