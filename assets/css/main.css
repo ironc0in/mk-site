@@ -438,6 +438,31 @@ hr,
 	}
 }
 
+/* Demo reel pop-up (home hero) */
+.reel-modal {
+	--bs-backdrop-opacity: 0.85;
+}
+
+.reel-modal .modal-content {
+	border: 0;
+	background: transparent;
+}
+
+.reel-modal .btn-close {
+	align-self: flex-end;
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-bottom: 0.75rem;
+	padding: 0.75rem; /* 44px touch target */
+	opacity: 0.9;
+}
+
+/* keep the 16:9 player inside short (landscape phone) screens */
+.reel-modal .modal-dialog {
+	max-width: min(1140px, calc(100vw - 2rem), calc((100vh - 7rem) * 16 / 9));
+	margin-inline: auto;
+}
+
 /* 5. Sections
    ========================================================================== */
 

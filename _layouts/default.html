@@ -65,10 +65,35 @@
                 <p class="hero__tag">{{ site.description }}</p>
                 <div class="hero__actions">
                     <a class="btn btn-lg btn-secondary" href="{{ site.baseurl }}/contact"><i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i> Book Me</a>
-                    <a class="btn btn-lg btn-ghost" href="{{ site.baseurl }}/speaking"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Speaking</a>
+                    {% comment %} Opens the demo reel in a pop-up; without JavaScript it is a plain link to YouTube. {% endcomment %}
+                    <a class="btn btn-lg btn-ghost" href="https://www.youtube.com/watch?v=VwNb9cgS5No" target="_blank" rel="noopener noreferrer"
+                        data-bs-toggle="modal" data-bs-target="#reelModal"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Watch the reel</a>
                 </div>
             </div>
         </header>
+
+        <div class="modal fade reel-modal" id="reelModal" tabindex="-1" aria-label="Speaker demo reel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close video"></button>
+                    <div class="responsive-container">
+                        <iframe class="responsive-iframe" title="Speaker Demo Reel"
+                            data-src="https://www.youtube.com/embed/VwNb9cgS5No?autoplay=1&rel=0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Load the reel only when the pop-up opens, and unload it on close so the sound stops.
+            (function () {
+                var modal = document.getElementById('reelModal');
+                var frame = modal.querySelector('iframe');
+                modal.addEventListener('show.bs.modal', function () { frame.src = frame.dataset.src; });
+                modal.addEventListener('hidden.bs.modal', function () { frame.removeAttribute('src'); });
+            })();
+        </script>
         {% else %}
         <header class="hero hero--page">
             <div class="hero__inner">
