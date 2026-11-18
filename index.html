@@ -51,6 +51,8 @@ title: Home
       </div>
     </section>
 
+    {% include testimonials.html %}
+
     <hr class="featurette-divider" id="speaking">
 
     <div class="container"> <!-- Speaking -->
@@ -154,35 +156,38 @@ title: Home
                 <p>By having a <b>hacker mindset</b>, Mishaal possesses unique yet practical skills to get the message
                     across.</p>
     
-                <h2>
-                    Awareness
-                </h2>
-                <p>
-                  Mishaal seeks to raise awareness and educate individuals and organizations on cybersecurity, privacy, and OSINT threats. 
-                  He aims to provide actionable next steps for adequate protection.
-                </p>
-                <h2>
-                    Jack of All Trades, Master of Some
-                </h2>
-                <p>
-                  With over twenty years of experience globally, he brings a valuable mix of skills. 
-                  As a <abbr title="virtual Chief Information Security Officer">vCISO</abbr>, Certified Ethical Hacker, Social Engineer, 
-                  the first IntelTechniques Certified OSINT Professional, and a privacy consultant, he excels as a problem solver.
-                </p>
-                <h2>
-                    Unfiltered
-                </h2>
-                <p>
-                  His honest and unfiltered approach captivates his audience by staying true to himself and fearlessly speaking his mind.
-                  This quality is highly valued in a field saturated with sponsorship bias and an overarching focus on public perception.
-                </p>
-                <h2>
-                    Simple
-                </h2>
-                <p>
-                  Through a blend of personal anecdotes and relatable examples, he has an innate ability to forge connections with
-                  individuals and simplify intricate subjects into digestible information.
-                </p>
+                <div class="skills">
+                  <ul class="skills__list">
+                    <li class="skill">
+                        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div>
+                            <h3>Awareness</h3>
+                            <p>Educates people and organizations on cybersecurity, privacy, and OSINT threats, with actionable next steps.</p>
+                        </div>
+                    </li>
+                    <li class="skill">
+                        <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                        <div>
+                            <h3>Jack of All Trades, Master of Some</h3>
+                            <p>Twenty-plus years as a <abbr title="virtual Chief Information Security Officer">vCISO</abbr>, ethical hacker, social engineer, OSINT professional, and privacy consultant.</p>
+                        </div>
+                    </li>
+                    <li class="skill">
+                        <i class="fa-solid fa-filter-circle-xmark" aria-hidden="true"></i>
+                        <div>
+                            <h3>Unfiltered</h3>
+                            <p>Honest and fearless, in a field saturated with sponsorship bias.</p>
+                        </div>
+                    </li>
+                    <li class="skill">
+                        <i class="fa-solid fa-shapes" aria-hidden="true"></i>
+                        <div>
+                            <h3>Simple</h3>
+                            <p>Personal anecdotes and relatable examples that make intricate subjects digestible.</p>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
                 <p>
                     <a class="btn btn-lg btn-secondary" href="/contact" title="Contact"><i
                             class="fa-solid fa-envelope-circle-check"></i> Contact</a>
