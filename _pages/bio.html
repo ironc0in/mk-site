@@ -13,7 +13,13 @@ image: /assets/images/khan-walk.jpeg
   <div class="row featurette">
     <div class="col-md-7">
 
-      <h2 class="featurette-heading" id="intro">🎤 Intro (On-Stage)</h2>
+      <div class="bio-head">
+        <h2 class="featurette-heading" id="intro">🎤 Intro (On-Stage)</h2>
+        <button type="button" class="btn btn-outline-dark btn-copy" data-copy="#intro-text">
+          <i class="fa-regular fa-copy" aria-hidden="true"></i> <span>Copy</span>
+        </button>
+      </div>
+      <div id="intro-text">
       <p>Ladies and gentlemen, hold on to your passwords — you're about to meet a true cybersecurity wizard! Mishaal Khan is a
       seasoned pro in ethical hacking, open-source intelligence, social engineering, and privacy. He’s the guy who makes the
       complex world of cybersecurity not just understandable but almost fun — if that’s even possible. As a virtual Chief
@@ -25,8 +31,15 @@ image: /assets/images/khan-walk.jpeg
       brings serious know-how to the stage. His insights will leave you smarter and maybe just a bit paranoid about your own
       security. Please give a warm welcome to Mishaal Khan!
       </p>
+      </div>
 
-      <h2 class="featurette-heading mt-5">🪪 Professional Bio (Brief)</h2>
+      <div class="bio-head mt-5">
+        <h2 class="featurette-heading" id="bio">🪪 Professional Bio (Brief)</h2>
+        <button type="button" class="btn btn-outline-dark btn-copy" data-copy="#bio-text">
+          <i class="fa-regular fa-copy" aria-hidden="true"></i> <span>Copy</span>
+        </button>
+      </div>
+      <div id="bio-text">
 
       <p>Mishaal is a highly respected figure in cybersecurity, with expertise in ethical hacking, Open Source Intelligence
         (OSINT), social engineering, and privacy. Mishaal's engaging approach involves live demos,
@@ -41,15 +54,60 @@ image: /assets/images/khan-walk.jpeg
         Certified OSINT Professional, remains at the forefront of technology, contributing his time to shape the industry's future. 
         With over two decades of experience, he is a sought-after speaker who speaks regularly at the worlds most premiere cybersecurity conferences like Black Hat, 6 times at DEF CON, 6 times at Wild West Hacking Fest, SANs, and TEDx.
       </p>
+      </div>
 
 
     </div>
     <div class="col-md-5">
-      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="500" height="500"
-      src="/assets/images/profile-hoodie.png"
-      srcset="/assets/images/profile-hoodie.png 480w, /assets/images/profile-hoodie.png 960w"
-      sizes="(min-width: 768px) 500px, calc(100vw - 32px)"
+      <img class="featurette-image img-fluid mx-auto rounded" width="500" height="500"
+      src="/assets/images/profile-hoodie-800.jpg"
       loading="lazy" decoding="async" alt="Mishaal Khan profile image" title="Profile Image">
+      <div class="downloads">
+        <p class="eyebrow">Download headshot</p>
+        <a class="btn btn-secondary" href="/assets/images/profile-hoodie.png" download="mishaal-khan-headshot.png">
+          <i class="fa-solid fa-download" aria-hidden="true"></i> PNG, transparent <small>1254 × 1254</small></a>
+        <a class="btn btn-outline-dark" href="/assets/images/profile-hoodie-800.jpg" download="mishaal-khan-headshot.jpg">
+          <i class="fa-solid fa-download" aria-hidden="true"></i> JPG, white <small>800 × 800</small></a>
+      </div>
     </div>
   </div>
 </div>
+
+<p class="visually-hidden" id="copy-status" role="status" aria-live="polite"></p>
+<script>
+  // "Copy" buttons: put a bio on the clipboard as plain paragraphs.
+  (function () {
+    var status = document.getElementById('copy-status');
+    document.querySelectorAll('.btn-copy').forEach(function (button) {
+      var label = button.querySelector('span');
+      button.addEventListener('click', function () {
+        var source = document.querySelector(button.dataset.copy);
+        var text = Array.prototype.map.call(source.querySelectorAll('p'), function (p) {
+          return p.textContent.replace(/\s+/g, ' ').trim();
+        }).join('\n\n');
+
+        function done(message) {
+          label.textContent = message;
+          status.textContent = message;
+          setTimeout(function () { label.textContent = 'Copy'; status.textContent = ''; }, 2500);
+        }
+
+        function selectInstead() {
+          // No clipboard access: highlight the text so it can be copied by hand.
+          var range = document.createRange();
+          range.selectNodeContents(source);
+          var selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          done('Selected');
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done('Copied'); }, selectInstead);
+        } else {
+          selectInstead();
+        }
+      });
+    });
+  })();
+</script>

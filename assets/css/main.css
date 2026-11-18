@@ -729,7 +729,7 @@ blockquote,
 .tile,
 .highlight,
 .podcast,
-.topics > [class*="col"],
+.topic,
 .card {
 	border: 1px solid var(--line);
 	border-radius: var(--radius);
@@ -1137,38 +1137,163 @@ blockquote,
 /* 12. Topics, contact, blog
    ========================================================================== */
 
-.topics {
-	--bs-gutter-x: 0;
+/* Topics: a grid of summary cards; the full write-up opens in place */
+.topic-list {
+	display: grid;
+	gap: 1.25rem;
+	align-items: start; /* opening one card must not stretch its neighbour */
+}
+
+@media (min-width: 768px) {
+	.topic-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.topic {
+	padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.topic__title {
+	margin: 0 0 0.6rem;
+	font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.55rem);
+}
+
+.topic__subtitle {
+	display: block;
+	margin-top: 0.3rem;
+	color: var(--muted);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.35;
+	letter-spacing: 0;
+}
+
+.topic__hook {
+	margin: 0 0 0.9rem;
+	font-size: 1.05rem;
+	line-height: 1.5;
+}
+
+.topic__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin: 0 0 0.5rem;
+	padding: 0;
+	list-style: none;
+}
+
+.topic__tags li {
 	margin: 0;
+	padding: 0.15rem 0.65rem;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	background: var(--surface);
+	color: var(--text);
+	font-size: 0.82rem;
+	line-height: 1.5;
 }
 
-.topics > [class*="col"] {
-	padding: clamp(1.25rem, 4vw, 2.25rem);
-}
-
-.topics h2 {
-	margin-top: 0;
-	font-size: clamp(1.35rem, 1.1rem + 1.2vw, 1.75rem);
-}
-
-.topics h3 {
+.topic__details summary {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	min-height: 44px;
 	color: var(--accent);
-	font-size: 0.85rem;
+	font-size: 0.95rem;
+	font-weight: 700;
+	cursor: pointer;
+	list-style: none;
+}
+
+.topic__details summary::-webkit-details-marker {
+	display: none;
+}
+
+.topic__details summary::after {
+	content: "";
+	width: 0.5em;
+	height: 0.5em;
+	margin-top: -0.2em;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(45deg);
+	transition: transform 0.15s ease;
+}
+
+.topic__details[open] summary::after {
+	margin-top: 0.2em;
+	transform: rotate(-135deg);
+}
+
+.topic__details summary:hover {
+	color: var(--accent-hover);
+}
+
+.topic__body {
+	padding-top: 0.75rem;
+	border-top: 1px solid var(--line);
+	font-size: 1rem;
+	line-height: 1.6;
+}
+
+.topic__body h3 {
+	color: var(--accent);
+	font-size: 0.8rem;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
-.topics > [class*="col"] > :last-child {
+.topic__body > :last-child {
 	margin-bottom: 0;
 }
 
-.topic-list {
-	display: grid;
-	gap: 1.5rem;
+/* Bio page: copy buttons and headshot downloads */
+.bio-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem 1rem;
+	margin-bottom: 1rem;
 }
 
-.contact-options {
-	margin-bottom: 2.5rem;
+.bio-head .featurette-heading {
+	margin: 0;
+	font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+}
+
+.btn-copy {
+	--bs-btn-padding-x: 0.9rem;
+	--bs-btn-padding-y: 0.35rem;
+	--bs-btn-font-size: 0.9rem;
+	min-width: 6.25rem; /* no jump when the label changes to "Copied" */
+}
+
+.downloads {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.6rem;
+	max-width: 22rem;
+	margin: 1.5rem auto 0;
+	text-align: center;
+}
+
+.downloads .eyebrow {
+	margin: 0;
+}
+
+.downloads small {
+	font-size: 0.8em;
+	font-weight: 400;
+	opacity: 0.8;
+}
+
+/* email and business links sit below the booking calendar */
+.contact-other {
+	margin-top: var(--section-y);
 }
 
 .contact-options .tile {

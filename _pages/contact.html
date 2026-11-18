@@ -9,6 +9,26 @@ permalink: /contact
     If you want a keynote speaker who leaves your audience laughing, scared, thinking, and inspired to act, <b>get me on
       your calendar</b> by filling out the form below.
   </p>
+</div>
+
+<!-- Cal inline embed code begins -->
+<div class="container"><div style="width:100%;min-height:600px" id="my-cal-inline"></div></div>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init",  {origin:"https://cal.com"});
+
+  Cal("inline", {
+	elementOrSelector:"#my-cal-inline",
+	calLink: "mishaalkhan/meeting",
+	layout: "month_view"
+  });
+
+  Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal inline embed code ends -->
+
+<div class="container contact-other">
+  <h2 class="section-heading">Other ways to get in touch</h2>
   <div class="row g-3 g-lg-4 contact-options">
     <div class="col-12 col-md-6">
       <div class="tile">
@@ -35,19 +55,3 @@ permalink: /contact
     </div>
   </div>
 </div>
-
-<!-- Cal inline embed code begins -->
-<div class="container"><div style="width:100%;min-height:600px" id="my-cal-inline"></div></div>
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init",  {origin:"https://cal.com"});
-
-  Cal("inline", {
-	elementOrSelector:"#my-cal-inline",
-	calLink: "mishaalkhan/meeting",
-	layout: "month_view"
-  });
-
-  Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
-  </script>
-  <!-- Cal inline embed code ends -->
