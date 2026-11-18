@@ -6,47 +6,51 @@ permalink: /speaking
 
 
 
-<!-- Three columns of text below the carousel -->
+<div class="container" id="packages"> <!-- 4 packages -->
 
-<div class="container" id="packages"> <!-- 4 circles -->
-
-  <h3 class="text-center">
-    <blockquote>
-      "I help secure organizations against cyber threats by offering strategic insights from a hacker's perspective."
-    </blockquote>
-  </h3>
-  <p class="text-center mt-5">
+  <blockquote>
+    "I help secure organizations against cyber threats by offering strategic insights from a hacker's perspective."
+  </blockquote>
+  <p class="lead-text mb-4 mb-md-5">
     Mishaal is open to speaking at your next event and offers the following options:
   </p>
 
-  <div class="row text-center">
+  <div class="row g-3 g-lg-4 text-center">
 
     <div class="col-6 col-lg-3">
-      <img class="rounded-circle" width="140" height="140" src="/assets/images/keynote-280.png" alt="Speaking" loading="lazy" decoding="async">
-      <h1>Speaking</h1>
-      <p>Kick off your event with an engaging keynote.</p>
-      <p><a class="btn btn-secondary" href="#speaking">Details »</a></p>
+      <div class="tile">
+        <img class="rounded-circle" width="140" height="140" src="/assets/images/keynote-280.png" alt="" loading="lazy" decoding="async">
+        <h3>Speaking</h3>
+        <p>Kick off your event with an engaging keynote.</p>
+        <p><a class="btn btn-secondary" href="#speaking" aria-label="Speaking details">Details »</a></p>
+      </div>
     </div>
 
     <div class="col-6 col-lg-3">
-      <img class="rounded-circle" width="140" height="140" src="/assets/images/front-back-280.png" alt="Book Signing" loading="lazy" decoding="async">
-      <h1>Book Signing</h1>
-      <p>A memorable takeaway for the attendees.</p>
-      <p><a class="btn btn-secondary" href="#booksigning">Details »</a></p>
+      <div class="tile">
+        <img class="rounded-circle" width="140" height="140" src="/assets/images/front-back-280.png" alt="" loading="lazy" decoding="async">
+        <h3>Book Signing</h3>
+        <p>A memorable takeaway for the attendees.</p>
+        <p><a class="btn btn-secondary" href="#booksigning" aria-label="Book Signing details">Details »</a></p>
+      </div>
     </div>
 
     <div class="col-6 col-lg-3">
-      <img class="rounded-circle" width="140" height="140" src="/assets/images/workshop-280.jpg" alt="Workshop" loading="lazy" decoding="async">
-      <h1>Workshop</h1>
-      <p>Gather attendees for a deeper discussion on a focussed topic.</p>
-      <p><a class="btn btn-secondary" href="#workshop">Details »</a></p>
+      <div class="tile">
+        <img class="rounded-circle" width="140" height="140" src="/assets/images/workshop-280.jpg" alt="" loading="lazy" decoding="async">
+        <h3>Workshop</h3>
+        <p>Gather attendees for a deeper discussion on a focussed topic.</p>
+        <p><a class="btn btn-secondary" href="#workshop" aria-label="Workshop details">Details »</a></p>
+      </div>
     </div>
 
     <div class="col-6 col-lg-3">
-      <img class="rounded-circle" width="140" height="140" src="/assets/images/training-280.jpg" alt="Training" loading="lazy" decoding="async">
-      <h1>Training</h1>
-      <p>Upskill with the next level of live, hands-on training.</p>
-      <p><a class="btn btn-secondary" href="#training">Details »</a></p>
+      <div class="tile">
+        <img class="rounded-circle" width="140" height="140" src="/assets/images/training-280.jpg" alt="" loading="lazy" decoding="async">
+        <h3>Training</h3>
+        <p>Upskill with the next level of live, hands-on training.</p>
+        <p><a class="btn btn-secondary" href="#training" aria-label="Training details">Details »</a></p>
+      </div>
     </div>
 
   </div>
@@ -86,8 +90,8 @@ permalink: /speaking
       data-src="/assets/images/keynote.png" role="img" aria-label="Placeholder: Speaking">
       </img> -->
       {% include promo-video.html %}
-      <p class="text-center m-5">
-        <a class="btn btn-lg btn-secondary" href="/topics" title="Speaker Page"><i class="fa-solid fa-chalkboard-user"></i> Topics</a>
+      <p class="text-center mt-4 mb-0">
+        <a class="btn btn-lg btn-secondary" href="/topics" title="Topics"><i class="fa-solid fa-chalkboard-user"></i> Topics</a>
       </p>
     </div>
   </div>
@@ -134,7 +138,7 @@ permalink: /speaking
 
     </div>
     <div class="col-md-5 order-md-1">
-      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="500" height="521"
+      <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="521"
       src="/assets/images/front-back-480.png"
       srcset="/assets/images/front-back-480.png 480w, /assets/images/front-back-960.png 960w"
       sizes="(min-width: 768px) 500px, calc(100vw - 32px)"
@@ -232,7 +236,5 @@ permalink: /speaking
     </div>
   </div>
 </div>
-
-<hr class="featurette-divider">
 
 {% include bookme.html %}

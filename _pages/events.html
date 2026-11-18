@@ -7,11 +7,7 @@ image: /assets/images/events.png
 
 <div class="container">
 
-  <p class="text-center">
-    List of confirmed events:
-  </p>
-
-  <div class="row featurette">
+  <div>
 
     {% assign today_date = 'now' | date: '%s' %}
 
@@ -20,9 +16,9 @@ image: /assets/images/events.png
 
     <!-- Upcoming Events Section -->
     <div class="table-responsive">
-        <h3 class="text-center display-6 py-3">Upcoming Events</h3>
-        <table class="events-table mt-3 table table-striped table-hover table-sm align-middle">
-          <thead class="table-light">
+        <h2 class="section-heading">Upcoming Events</h2>
+        <table class="events-table table table-striped table-hover align-middle">
+          <thead>
             <tr>
               <th>Type</th>
               <th>Title</th>
@@ -59,13 +55,15 @@ image: /assets/images/events.png
         </table>
     </div>
 
+</div></div>
 {% include bookme.html %}
+<div class="container"><div>
 
     <!-- Past Events Section -->
-    <div class="table-responsive mt-5">
-        <h3 class="text-center display-6 py-3">Past Events</h3>
-        <table class="events-table mt-3 table table-striped table-hover table-sm align-middle">
-          <thead class="table-light">
+    <div class="table-responsive" style="margin-top: var(--section-y)">
+        <h2 class="section-heading">Past Events</h2>
+        <table id="past-events" class="events-table table table-striped table-hover align-middle">
+          <thead>
             <tr>
               <th>Type</th>
               <th>Title</th>
@@ -74,10 +72,14 @@ image: /assets/images/events.png
             </tr>
           </thead>
           <tbody>
-            {% for result in sortedItems %}
+            {% comment %} Newest first; on phones only the 5 most recent show until "Show all" is tapped. {% endcomment %}
+            {% assign pastItems = sortedItems | reverse %}
+            {% assign past_count = 0 %}
+            {% for result in pastItems %}
                 {% assign pre_date = result.properties.Date.date.start | date: '%s' %}
                 {% if today_date > pre_date %}
-                <tr class="past">
+                {% assign past_count = past_count | plus: 1 %}
+                <tr class="past{% if past_count > 5 %} past-extra{% endif %}">
                   <td class="text-center">
                     <div class="badge pill-rounded" style="background-color: {{ result.properties.Type.select.color }};">
                       {{ result.properties.Type.select.name }}
@@ -99,6 +101,28 @@ image: /assets/images/events.png
             {% endfor %}
           </tbody>
         </table>
+        {% if past_count > 5 %}
+        <p class="events-more" hidden>
+          <button type="button" class="btn btn-outline-dark" id="past-events-toggle" aria-expanded="false" aria-controls="past-events"
+            data-more="Show all {{ past_count }} past events" data-less="Show fewer">Show all {{ past_count }} past events</button>
+        </p>
+        <script>
+          (function () {
+            var table = document.getElementById('past-events');
+            var button = document.getElementById('past-events-toggle');
+            if (!table || !button) return;
+            // Collapse only when JS runs, so the full list stays visible without it.
+            table.classList.add('is-collapsed');
+            button.parentNode.hidden = false;
+            button.addEventListener('click', function () {
+              var collapsed = table.classList.toggle('is-collapsed');
+              button.setAttribute('aria-expanded', String(!collapsed));
+              button.textContent = collapsed ? button.dataset.more : button.dataset.less;
+              if (collapsed) table.scrollIntoView({ block: 'start' });
+            });
+          })();
+        </script>
+        {% endif %}
     </div>
     {% else %}
         <p class="text-center">[ Under Construction ]</p>
@@ -107,7 +131,3 @@ image: /assets/images/events.png
   </div>
 
 </div>
-
-<hr class="featurette-divider">
-
-<!-- /END THE FEATURETTES -->

@@ -13,21 +13,21 @@
     {% seo %}
 
     <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/fonts/SourceSansPro.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/fonts/SourceSansPro.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
     <link href="{{ site.baseurl }}/assets/fonts/all.min.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/main.css?v={{ site.time | date: '%s' }}" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ site.url }}assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.url }}assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ site.url }}assets/icons/favicon-16x16.png">
     <link rel="manifest" href="{{ site.baseurl }}/assets/icons/site.webmanifest">
     <link rel="mask-icon" href="{{ site.baseurl }}/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#0b0d10">
     <meta HTTP-EQUIV='Content-Security-Policy'
         CONTENT="
         default-src 'self' 'unsafe-inline' https://*.hcaptcha.com https://*.web3forms.com https://web3forms.com https://www.youtube.com youtube.com https://app.cal.com/; 
         script-src 'self' 'unsafe-inline' https://*.web3forms.com https://web3forms.com https://*.cloudflareinsights.com https://*.hcaptcha.com https://app.cal.com/; 
-        font-src 'self' https://fonts.gstatic.com; 
+        font-src 'self'; 
         base-uri 'self'; object-src 'none'; 
         img-src * data: blob:"
         >
@@ -52,24 +52,35 @@
 {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 
 <body class="{{layout}}">
+    <a class="skip-link" href="#content">Skip to content</a>
     {% include navigation.html %}
 
     <div class="site-content">
 
-        <!-- Site header -->
-
-        <div class="mainheading">
-            <section id="header" class="wrapper">
-                <div id="logo">
-                    <div><span class="thin">Mishaal</span>Khan</div>
-                    <p>{{ site.description }}</p>
+        <!-- Site header: full hero on the home page, compact title band elsewhere -->
+        {% if page.url == '/' %}
+        <header class="hero hero--home">
+            <div class="hero__inner">
+                <h1 class="hero__name"><span class="thin">Mishaal</span> Khan</h1>
+                <p class="hero__tag">{{ site.description }}</p>
+                <div class="hero__actions">
+                    <a class="btn btn-lg btn-secondary" href="{{ site.baseurl }}/contact"><i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i> Book Me</a>
+                    <a class="btn btn-lg btn-ghost" href="{{ site.baseurl }}/speaking"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Speaking</a>
                 </div>
-            </section>
-        </div>
-            <!-- Content  -->
-            <div class="main-content">
-                {{ content }}
             </div>
+        </header>
+        {% else %}
+        <header class="hero hero--page">
+            <div class="hero__inner">
+                <h1 class="hero__title">{{ page.title }}</h1>
+            </div>
+        </header>
+        {% endif %}
+
+        <!-- Content  -->
+        <main class="main-content" id="content">
+            {{ content }}
+        </main>
 
         {% include footer.html %}
 
@@ -77,8 +88,6 @@
 
     <!-- Scripts ============================================= -->
     <script type="text/javascript" src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js" async defer></script>
-    <!-- <script src="{{site.baseurl}}/assets/js/lunr.js" async defer></script>
-    <script src="{{site.baseurl}}/assets/js/lunrsearchengine.js" async defer></script> -->
 </body>
 
 </html>
