@@ -513,6 +513,62 @@ blockquote,
 	text-align: center;
 }
 
+/* Numbers strip under the home hero */
+.stats {
+	padding-block: clamp(1.5rem, 4vw, 2.25rem);
+	background: var(--dark-2);
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	color: var(--on-dark);
+}
+
+.stats__list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem 1rem;
+	margin: 0;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.stats__list {
+		grid-template-columns: none;
+		grid-auto-flow: column;
+		grid-auto-columns: 1fr;
+	}
+
+	.stats__item + .stats__item {
+		border-left: 1px solid rgba(255, 255, 255, 0.1);
+	}
+}
+
+.stats__item {
+	display: flex;
+	flex-direction: column-reverse; /* number above its label; label stays first for screen readers */
+	justify-content: flex-end; /* keep numbers level when a label wraps to two lines */
+	gap: 0.35rem;
+	padding-inline: 0.5rem;
+}
+
+.stats__item dd {
+	margin: 0;
+	color: #fff;
+	font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+}
+
+.stats__item dt {
+	color: var(--on-dark-muted);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
 /* 6. Featurettes (image + text rows)
    ========================================================================== */
 

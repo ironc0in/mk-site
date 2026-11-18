@@ -6,6 +6,39 @@ title: Home
 
 <div class="home">
 
+    {% comment %} Numbers strip. The event count and start year come from the Notion events data. {% endcomment %}
+    {% assign today = 'now' | date: '%Y-%m-%d' %}
+    {% assign events = site.data.data.results | sort: "properties.Date.date.start" %}
+    {% assign events_done = 0 %}
+    {% for event in events %}
+      {% if event.properties.Date.date.start < today %}{% assign events_done = events_done | plus: 1 %}{% endif %}
+    {% endfor %}
+    {% assign events_since = events.first.properties.Date.date.start | slice: 0, 4 %}
+    <section class="stats" aria-label="Career highlights">
+      <div class="container">
+        <dl class="stats__list">
+          <div class="stats__item">
+            <dt>Years in cybersecurity</dt>
+            <dd>25+</dd>
+          </div>
+          {% if events_done > 0 %}
+          <div class="stats__item">
+            <dt>Events since {{ events_since }}</dt>
+            <dd>{{ events_done }}</dd>
+          </div>
+          {% endif %}
+          <div class="stats__item">
+            <dt>DEF CON speaker</dt>
+            <dd>7×</dd>
+          </div>
+          <div class="stats__item">
+            <dt>Wild West Hackin' Fest</dt>
+            <dd>6×</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
     <section class="intro">
       <div class="container">
         <p class="eyebrow">Cybersecurity | Privacy | Open Source Intelligence</p>
